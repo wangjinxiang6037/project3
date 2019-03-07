@@ -143,7 +143,36 @@ layui.define(['$tool','jquery'], function (exports) {
         },
         UpdateUserInfo:function(req,config,successCallback,errorCallback){
             doComplexPost($tool.getContext() + 'personCenter/update.do',req,config,successCallback,errorCallback);
+        },//生产表删除
+        Deleteaproduct:function(req,config,successCallback,errorCallback) {
+            doPost($tool.getContext() + '/product/delete', req, config, successCallback, errorCallback);
         }
+        ,//修改
+        updateProduct:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'product/update',req,successCallback,errorCallback);
+        },//获取产品ID
+        GetProduct:function(req,successCallback,errorCallback){
+             doPost($tool.getContext()+'product/get',req,successCallback,errorCallback);
+        },
+       GetProductList:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'product/list',req,successCallback,errorCallback);
+        },
+        AddProduct:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'product/add',req,successCallback,errorCallback);
+        },//生产配方删除
+        DeleteaproductFormula:function(req,config,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'productformula/delete', req, config, successCallback, errorCallback);
+        },//获取生产配方ID
+        GetProductFormula:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'productformula/get',req,successCallback,errorCallback);
+        },//生产配方修改
+        updateProductFormula:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'productformula/update',req,successCallback,errorCallback);
+        },//生产配方添加
+        AddProductFormula:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'productformula/add',req,successCallback,errorCallback);
+        },
+
     };
 
 
