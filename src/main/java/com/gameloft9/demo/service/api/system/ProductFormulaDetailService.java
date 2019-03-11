@@ -15,4 +15,25 @@ public interface ProductFormulaDetailService {
      * 获取所有角色个数
      * */
     int countGetAll(String productFormulaId,String materialId);
+
+    /**
+     * 通过ID删除生产配方明细
+     */
+    int deleteById(String id);
+
+    /**
+     * 获取生产配方明细id
+     */
+    ProductFormulaDetail getById(String id);
+
+    /**
+     * 修改生产配方明细
+     */
+    int  update(ProductFormulaDetail productFormulaDetail);
+
+    /**
+     * 增加
+     */
+    int add(ProductFormulaDetail productFormulaDetail);
+
 }

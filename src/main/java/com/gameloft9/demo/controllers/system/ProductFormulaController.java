@@ -34,6 +34,11 @@ import java.util.List;
     @Autowired
     ProductFormulaService productFormulaService;
 
+      /**
+       * 处理时间
+       * @param binder
+       * @param request
+       */
     @InitBinder
     public void initBinder(WebDataBinder binder, WebRequest request){
     //转换日期

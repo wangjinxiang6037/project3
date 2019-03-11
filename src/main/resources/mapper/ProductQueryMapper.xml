@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--mapper映射-->
+<mapper namespace="com.gameloft9.demo.dataaccess.dao.system.ProductQueryMapper">
+    <!--结果集映射-->
+    <resultMap id="ProductQueryResultMap" type="com.gameloft9.demo.dataaccess.model.system.ProductQuery">
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_ID" property="productId" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_DAMAGE_ID" property="productDamageId" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_SIZE" property="productSize" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_NUMBER" property="productNumber" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_PASS" property="productPass" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_FAIL" property="productFail" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--<sql id="Base_Column_List">
+
+        ID, PRODUCT_NAME, PRODUCT_TYPE, PRODUCT_DESCRIBE, PRODUCT_PRICE, PRODUCT_ADDRESS
+    </sql>-->
+
+    <!--获取角色ID-->
+
+    <select id="getById" resultMap="ProductQueryResultMap" parameterType="java.lang.String">
+
+        select
+           ID, PRODUCT_ID, PRODUCT_DAMAGE_ID, PRODUCT_SIZE, PRODUCT_NUMBER,PRODUCT_PASS,PRODUCT_FAIL
+        from produce_query
+        where ID = #{id,jdbcType=VARCHAR}
+
+    </select>
+
+
+
+    <!--查找所有分页模糊查询-->
+    <select id="findAll" resultMap="ProductQueryResultMap">
+        select * from produce_query t
+        <where>
+            <if test="productId != null and productId != ''">
+                and t.PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+            </if>
+            <if test="productDamageId != null and productDamageId != ''">
+                and t.PRODUCT_DAMAGE_ID = #{productDamageId,jdbcType=VARCHAR}
+            </if>
+        </where>
+        order by t.id asc
+        limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
+    </select>
+    <!--查找条数-->
+    <select id="countGetAll" resultType="java.lang.Integer" parameterType="map">
+
+        select
+        count(1)
+        from produce_query t
+        where 1=1
+        <if test="productId != null and productId != ''">
+            and t.PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+        </if>
+        <if test="productDamageId != null and productDamageId != ''">
+            and t.PRODUCT_DAMAGE_ID = #{productDamageId,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <!--<select id="findById"  parameterType="java.lang.Integer" resultType="com.gameloft9.demo.dataaccess.model.system.Product">
+        select
+       *
+        from product
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>-->
+
+    <!--通过ID删除-->
+    <delete id="deleteById" parameterType="java.lang.String">
+    delete from produce_query
+    where ID = #{id}
+  </delete>
+    <!--添加-->
+    <insert id="add" parameterType="com.gameloft9.demo.dataaccess.model.system.ProductQuery">
+        insert into produce_query (ID, PRODUCT_ID, PRODUCT_DAMAGE_ID, PRODUCT_SIZE, PRODUCT_NUMBER,PRODUCT_PASS,PRODUCT_FAIL)values (#{id},#{productId},#{productDamageId},#{productSize},
+        #{productNumber},#{productPass},#{productFail})
+
+    </insert>
+    <!--修改-->
+    <update id="update" parameterType="com.gameloft9.demo.dataaccess.model.system.ProductQuery">
+      update produce_query set PRODUCT_ID=#{productId},PRODUCT_DAMAGE_ID=#{productDamageId},PRODUCT_SIZE=#{productSize},
+      PRODUCT_NUMBER=#{productNumber},PRODUCT_PASS=#{productPass},PRODUCT_FAIL=#{productFail} where ID=#{id}
+  </update>
+
+</mapper>

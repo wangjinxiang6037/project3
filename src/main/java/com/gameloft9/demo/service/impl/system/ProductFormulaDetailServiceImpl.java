@@ -40,4 +40,45 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
     public int countGetAll(String productFormulaId, String materialId) {
         return productFormulaDetailMapper.countGetAll(productFormulaId,materialId);
     }
+
+    /**
+     * 通过ID删除生产配方明细
+     * @param id
+     * @return
+     */
+    @Override
+    public int deleteById(String id) {
+        return productFormulaDetailMapper.deleteById(id);
+    }
+
+    /**
+     * 获取id
+     * @param id
+     * @return
+     */
+    @Override
+    public ProductFormulaDetail getById(String id) {
+        return productFormulaDetailMapper.getById(id);
+    }
+
+    /**
+     * 修改明细
+     * @param productFormulaDetail
+     * @return
+     */
+    @Override
+    public int update(ProductFormulaDetail productFormulaDetail) {
+        return productFormulaDetailMapper.update(productFormulaDetail);
+    }
+
+    /**
+     * 增加
+     * @param productFormulaDetail
+     * @return
+     */
+    @Override
+    public int add(ProductFormulaDetail productFormulaDetail) {
+
+        return productFormulaDetailMapper.add(productFormulaDetail);
+    }
 }

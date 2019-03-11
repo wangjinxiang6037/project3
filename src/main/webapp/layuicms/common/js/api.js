@@ -171,7 +171,55 @@ layui.define(['$tool','jquery'], function (exports) {
         },//生产配方添加
         AddProductFormula:function(req,successCallback,errorCallback){
             doPost($tool.getContext() + 'productformula/add',req,successCallback,errorCallback);
-        },
+        },//配方明细删除
+        DeleteFormulaDetail:function(req,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'productdetail/delete', req,successCallback, errorCallback);
+    },//获取配方明细ID
+        GetFormulaDetail:function(req,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'productdetail/get', req, successCallback, errorCallback);
+        },//生产配方明细修改
+        updateFormulaDetail:function(req,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'productdetail/update', req, successCallback, errorCallback);
+        },//生产配方添加
+        AddFormulaDetail:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + 'productdetail/add',req,successCallback,errorCallback);
+        },//入库申请单删除
+        DeleteproducApplicacion:function(req,config,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'application/delete', req, config, successCallback, errorCallback);
+        },//申请单修改
+        updateProductApplication:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'application/update', req, successCallback, errorCallback);
+        },//生产配方添加
+        AddProductApplication:function(req,successCallback,errorCallback){
+        doPost($tool.getContext() + 'application/add',req,successCallback,errorCallback);
+        },//获取配方明细ID
+        GetProductApplication:function(req,successCallback,errorCallback) {
+            doPost($tool.getContext() + 'application/get', req, successCallback, errorCallback);
+        },//破损申请单删除
+        DeleteProductDamage:function(req,config,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'damage/delete', req, config, successCallback, errorCallback);
+    },//获取破损ID
+        GetProductDamage:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'damage/get', req, successCallback, errorCallback);
+        },//破损单修改
+        updateProductDamage:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'damage/update', req, successCallback, errorCallback);
+    },//破损单添加
+        AddProductDamage:function(req,successCallback,errorCallback){
+        doPost($tool.getContext() + 'damage/add',req,successCallback,errorCallback);
+    },//入库申请单删除
+        DeleteProductQuery:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'query/delete', req, successCallback, errorCallback);
+    },//生产配方添加
+        AddProductQuery:function(req,successCallback,errorCallback){
+        doPost($tool.getContext() + 'query/add',req,successCallback,errorCallback);
+    },//获取ID
+        GetProductQuery:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'query/get', req, successCallback, errorCallback);
+    },//修改
+        updateProductQuery:function(req,successCallback,errorCallback) {
+        doPost($tool.getContext() + 'query/update', req, successCallback, errorCallback);
+    },
 
     };
 
