@@ -26,6 +26,7 @@
         <result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR"/>
         <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
+
     <sql id="Base_Column_List">
         <!--
           WARNING - @mbggenerated

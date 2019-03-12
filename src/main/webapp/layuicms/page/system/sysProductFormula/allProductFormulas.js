@@ -37,7 +37,7 @@ layui.config({
             , cols: [[ //表头
                   {type:'numbers',title:'序号',fixed: 'left'}
                 , {field: 'id', title: 'id'}
-                , {field: 'productId', title: '产品Id'}
+                , {field: 'productId', title: '配方Id'}
                 , {field: 'type', title: '配方类别' }
                 , {field: 'createUser', title: '创建人'}
                 , {field: 'createTime', title: '创建时间' }
@@ -98,7 +98,7 @@ layui.config({
     //添加用户
     $(".add_btn").click(function () {
         var index = layui.layer.open({
-            title: "添加用户",
+            title: "添加配方",
             type: 2,
             content: "addProductFormula.html",
             success: function (layero, index) {
@@ -158,7 +158,7 @@ layui.config({
     //编辑
     function editProductFormula(id){
         var index = layui.layer.open({
-            title: "编辑用户",
+            title: "编辑配方",
             type: 2,
             content: "editProductFormula.html?id="+id,
             success: function (layero, index) {

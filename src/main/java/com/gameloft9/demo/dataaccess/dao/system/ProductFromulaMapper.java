@@ -1,6 +1,7 @@
 package com.gameloft9.demo.dataaccess.dao.system;
 
 
+import com.gameloft9.demo.dataaccess.model.system.Product;
 import com.gameloft9.demo.dataaccess.model.system.ProductFormula;
 import org.apache.ibatis.annotations.Param;
 
@@ -44,4 +45,9 @@ public interface ProductFromulaMapper {
      * 增加生产配方信息
      */
     int add(ProductFormula productFormula);
+
+    /**
+     * 调用prodcut表id
+     */
+    Product getProductById(String id);
 }

@@ -37,11 +37,11 @@ layui.config({
             , cols: [[ //表头
                   {type:'numbers',title:'序号',fixed: 'left'}
                 , {field: 'id', title: 'id'}
-                , {field: 'productName', title: '产品名称'}
-                , {field: 'productType', title: '产品类型' }
-                , {field: 'productDescribe', title: '产品描述'}
-                , {field: 'productPrice', title: '产品价格' }
-                , {field: 'productAddress', title: '产品地址'}
+                , {field: 'productName', title: '原料名称'}
+                , {field: 'productType', title: '原料类型' }
+                , {field: 'productDescribe', title: '原料描述'}
+                , {field: 'productPrice', title: '原料价格' }
+                , {field: 'productAddress', title: '原料地址'}
 
                 , {fixed: 'right', title: '操作',  align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
@@ -98,7 +98,7 @@ layui.config({
     //添加用户
     $(".add_btn").click(function () {
         var index = layui.layer.open({
-            title: "添加用户",
+            title: "添加原料",
             type: 2,
             content: "addProduct.html",
             success: function (layero, index) {
@@ -158,7 +158,7 @@ layui.config({
     //编辑
     function editUser(id){
         var index = layui.layer.open({
-            title: "编辑用户",
+            title: "编辑原料",
             type: 2,
             content: "editProduct.html?id="+id,
             success: function (layero, index) {

@@ -9,8 +9,6 @@
         <result column="TYPE" property="type" jdbcType="VARCHAR"/>
         <result column="CREATE_USER" property="createUser" jdbcType="VARCHAR"/>
         <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR"/>
-
-
     </resultMap>
 
     <sql id="Base_Column_List">

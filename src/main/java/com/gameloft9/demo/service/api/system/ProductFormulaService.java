@@ -37,5 +37,8 @@ public interface ProductFormulaService {
      */
     String add(ProductFormula productFormula);
 
-
+    /**
+     * 调用product表id
+     */
+    Product getProductById(String id);
 }

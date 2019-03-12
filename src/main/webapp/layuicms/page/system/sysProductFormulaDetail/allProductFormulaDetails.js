@@ -91,7 +91,7 @@ layui.config({
     //添加用户
     $(".add_btn").click(function () {
         var index = layui.layer.open({
-            title: "添加用户",
+            title: "添加加工单",
             type: 2,
             content: "addProductFormulaDetail.html",
             success: function (layero, index) {
@@ -151,7 +151,7 @@ layui.config({
     //编辑
     function editFormulaDetail(id){
         var index = layui.layer.open({
-            title: "编辑用户",
+            title: "编辑加工单",
             type: 2,
             content: "editProductFormulaDetail.html?id="+id,
             success: function (layero, index) {

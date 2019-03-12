@@ -2,24 +2,59 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!--mapper映射-->
 <mapper namespace="com.gameloft9.demo.dataaccess.dao.system.ProductFormulaDetailMapper">
-    <!--结果集映射-->
+    <!--加工单结果集映射-->
     <resultMap id="ProductFormulaDetailResultMap" type="com.gameloft9.demo.dataaccess.model.system.ProductFormulaDetail">
         <id column="ID" property="id" jdbcType="VARCHAR"/>
         <result column="PRODUCT_FORMULA_ID" property="productFormulaId" jdbcType="VARCHAR"/>
         <result column="MATERIAL_ID" property="materialId" jdbcType="VARCHAR"/>
         <result column="MATERIAL_NUMBER" property="materialNumber" jdbcType="VARCHAR"/>
 
-
-
+    </resultMap>
+    <!--生产配方映射-->
+    <resultMap id="ProductFormulaResultMap" type="com.gameloft9.demo.dataaccess.model.system.ProductFormula">
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_ID" property="productId" jdbcType="VARCHAR"/>
+        <result column="TYPE" property="type" jdbcType="VARCHAR"/>
+        <result column="CREATE_USER" property="createUser" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!--<sql id="Base_Column_List">
+    <!--原料单映射-->
+    <resultMap id="ProductResultMap" type="com.gameloft9.demo.dataaccess.model.system.Product">
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_NAME" property="productName" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_TYPE" property="productType" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_DESCRIBE" property="productDescribe" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_PRICE" property="productPrice" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_ADDRESS" property="productAddress" jdbcType="VARCHAR"/>
+    </resultMap>
 
-        ID, PRODUCT_FORMULA_ID,  MATERIAL_ID, MATERIAL_NUMBER
-    </sql>-->
+    <!--生产-原料-分页显示-->
+    <select id="findAll" resultMap="ProductFormulaDetailResultMap">
+        select
+        p.PRODUCT_NAME,
+        p.PRODUCT_TYPE,
+        pfd.MATERIAL_NUMBER,
+        pf.PRODUCT _ID,
+        pf.TYPE
+        from
+        product p,
+        product_formula pf,
+        produce_formula_detail pfd
+        <where>
+            <if test="productFormulaId != null and productFormulaId != ''">
+                and t.PRODUCT_FORMULA_ID = #{productFormulaId,jdbcType=VARCHAR}
+            </if>
+            <if test="materialId != null and materialId != ''">
+                and t.MATERIAL_ID = #{materialId,jdbcType=VARCHAR}
+            </if>
+            and p.ID=pfd.PRODUCT_FORMULA_ID
+            and pf.ID=pfd.MATERIAL_ID
+        </where>
+        limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
+    </select>
 
-    <!--获取角色ID-->
-
+    <!--获取加工单ID-->
     <select id="getById" resultMap="ProductFormulaDetailResultMap" parameterType="java.lang.String">
 
         select
@@ -32,7 +67,7 @@
 
 
     <!--查找所有分页模糊查询-->
-    <select id="findAll" resultMap="ProductFormulaDetailResultMap">
+    <!--<select id="findAll" resultMap="ProductFormulaDetailResultMap">
         select * from produce_formula_detail t
         <where>
             <if test="productFormulaId != null and productFormulaId != ''">
@@ -44,7 +79,7 @@
         </where>
         order by t.id asc
         limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
-    </select>
+    </select>-->
     <!--查找条数-->
     <select id="countGetAll" resultType="int" parameterType="map">
 
@@ -61,12 +96,9 @@
         </where>
     </select>
 
-    <!--<select id="findById"  parameterType="java.lang.Integer" resultType="com.gameloft9.demo.dataaccess.model.system.Product">
-        select
-       *
-        from product
-        where ID = #{id,jdbcType=VARCHAR}
-    </select>-->
+
+
+
 
     <!--通过ID删除-->
     <delete id="deleteById" parameterType="java.lang.String">

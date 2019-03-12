@@ -1,0 +1,6 @@
+
+hsquid:S4488G"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8³ş’ä–-
+gsquid:S4488="JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8³ş’ä–-
+gsquid:S4488("JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹68³ş’ä–-
+msquid:S44883"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÏàÛ€ùÿÿÿÿ8³ş’ä–-
+…squid:UselessImportCheck"ZRemove this unused import 'com.gameloft9.demo.dataaccess.model.system.ProductApplication'.(ØŒ­8…˜œä–-

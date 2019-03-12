@@ -1,6 +1,8 @@
 package com.gameloft9.demo.service.impl.system;
 
 import com.gameloft9.demo.dataaccess.dao.system.ProductFromulaMapper;
+import com.gameloft9.demo.dataaccess.dao.system.ProductMapper;
+import com.gameloft9.demo.dataaccess.model.system.Product;
 import com.gameloft9.demo.dataaccess.model.system.ProductFormula;
 import com.gameloft9.demo.mgrframework.beans.response.IResult;
 import com.gameloft9.demo.service.api.system.ProductFormulaService;
@@ -16,7 +18,8 @@ import java.util.List;
 public class ProductFormulaServiceImpl implements ProductFormulaService {
    @Autowired
     ProductFromulaMapper productFromulaMapper;
-
+   @Autowired
+    ProductMapper productMapper;
 
     @Override
     public List<ProductFormula> findAll(String page, String limit, String productId, String createUser) {
@@ -85,6 +88,14 @@ public class ProductFormulaServiceImpl implements ProductFormulaService {
         productFromulaMapper.add(productFormula);
 
         return  productFormula.getId();
+    }
+
+    /**
+     * 调用product表id
+     */
+    @Override
+    public Product getProductById(String id) {
+        return productMapper.getProduct(id);
     }
 
 

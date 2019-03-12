@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>生产配方明细管理</title>
+    <title>加工单管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -30,13 +30,21 @@
         <div class="layui-inline">
             <label class="layui-form-label">配方ID</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input" name="productFormulaId" placeholder="请输入配方ID">
+                <select name="productFormulaId" >
+                    <option value="">--请选择--</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
             </div>
         </div>
         <div class="layui-inline">
             <label class="layui-form-label">原料ID</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input" name="materialId" placeholder="请输入原料ID">
+                <select name="materialId" >
+                    <option value="">--请选择--</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
             </div>
         </div>
         <!--<div class="layui-inline">
@@ -66,7 +74,7 @@
             <a class="layui-btn search_btn" lay-submit="" lay-filter="queryUser">查询</a>
         </div>
         <div class="layui-inline">
-            <a class="layui-btn layui-btn-normal add_btn">添加产品</a>
+            <a class="layui-btn layui-btn-normal add_btn">添加加工单</a>
         </div>
     </form>
 </blockquote>

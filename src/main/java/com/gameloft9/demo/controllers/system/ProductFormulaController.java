@@ -34,6 +34,8 @@ import java.util.List;
     @Autowired
     ProductFormulaService productFormulaService;
 
+    @Autowired
+    ProductService productService;
       /**
        * 处理时间
        * @param binder
@@ -97,4 +99,14 @@ import java.util.List;
           return new ResultBean<String>(productFormulaService.add(productFormula));
       }
 
+      /**
+       * 调用product表的id
+       */
+      @RequestMapping(value = "/getProductById",method = RequestMethod.POST)
+      @ResponseBody
+      public IResult getProductById(String id){
+
+          Product product = productService.getProduct(id);
+          return new ResultBean(product);
+      }
   }

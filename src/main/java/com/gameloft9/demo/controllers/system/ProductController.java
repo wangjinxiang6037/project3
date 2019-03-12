@@ -74,7 +74,7 @@ public class ProductController {
 
 
     /**
-     * 获取角色id
+     * 获取产品id
      * */
     @RequestMapping("/get")
     @ResponseBody

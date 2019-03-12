@@ -1,9 +1,9 @@
 
+gsquid:S4488I"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8†Ô¸¼•-
+hsquid:S4488]"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8¨ñ€¾•-
+gsquid:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹68†Ô¸¼•-
 zsquid:UselessImportCheck"ORemove this unused import 'com.gameloft9.demo.dataaccess.model.system.Product'.(ùÑÁÕ8ëÁª·•-
-Tsquid:UselessImportCheck")Remove this unused import 'lombok.Value'.(ß­ÅŸ8¨ñ€¾•-
 squid:UselessImportCheck
 "QRemove this unused import 'com.gameloft9.demo.service.api.system.ProductService'.(Ø®µçûÿÿÿÿ8ÿ¡·•-
-gsquid:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹68†Ô¸¼•-
+Tsquid:UselessImportCheck")Remove this unused import 'lombok.Value'.(ß­ÅŸ8¨ñ€¾•-
 msquid:S4488S"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÏàÛ€ùÿÿÿÿ8†Ô¸¼•-
-hsquid:S4488]"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8¨ñ€¾•-
-gsquid:S4488I"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8†Ô¸¼•-

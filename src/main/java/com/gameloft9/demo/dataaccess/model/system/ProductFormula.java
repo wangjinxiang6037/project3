@@ -11,7 +11,7 @@ public class ProductFormula {
 
 private String id;
 private String productId;
-private Integer type;
+private String type;
 private String createUser;
 @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
 private Date createTime;
