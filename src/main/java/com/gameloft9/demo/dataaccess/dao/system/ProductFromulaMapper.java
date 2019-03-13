@@ -19,7 +19,6 @@ public interface ProductFromulaMapper {
     @Param("end") int end,
     @Param("productId") String productId,
     @Param("createUser") String createUser);
-
     /**
      * 获取所有角色个数
      * */
@@ -47,7 +46,7 @@ public interface ProductFromulaMapper {
     int add(ProductFormula productFormula);
 
     /**
-     * 调用prodcut表id
+     * 获取所有列表信息
      */
-    Product getProductById(String id);
+    List<ProductFormula> selectAll();
 }

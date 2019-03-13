@@ -20,8 +20,22 @@ layui.config({
      * 页面初始化
      * */
     function init() {
+
+        //初始化下拉框
+        $api. GetFirstProductFormula(null,function (res) {
+            var data = res.data;
+            if(data.length > 0){
+                var html = '<option value="">--请选择--</option>';
+                for(var i=0;i<data.length;i++){
+                    html += '<option value="'+data[i].id+'">'+data[i].title+'</option>>';
+                }
+                $('#parentMenu').append($(html));
+                form.render();
+            }
+        });
     }
     init();
+
 
 
     /**
@@ -37,8 +51,14 @@ layui.config({
             , cols: [[ //表头
                   {type:'numbers',title:'序号',fixed: 'left'}
                 , {field: 'id', title: 'id'}
-                , {field: 'productFormulaId', title: '配方ID'}
                 , {field: 'materialId', title: '原料ID' }
+                , {field: 'productName', title: '原料名字' }
+                , {field: 'productType', title: '原料类型' }
+
+                , {field: 'productFormulaId', title: '生产配方ID'}
+                , {field: 'productId', title: '配方ID' }
+                , {field: 'type', title: '配方类型' }
+
                 , {field: 'materialNumber', title: '原料数量'}
                 , {fixed: 'right', title: '操作',  align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
@@ -71,16 +91,25 @@ layui.config({
     form.on("submit(queryUser)", function (data) {
         var status = data.field.status;
         var id = data.field.id;
-        var productFormulaId = data.field.productFormulaId;
         var materialId = data.field.materialId;
+        var productName = data.field.productName;
+        var productType = data.field.productType;
+        var productFormulaId = data.field.productFormulaId;
+        var productId = data.field.productId;
+        var type = data.field.type;
+
         var materialNumber = data.field.materialNumber
         //表格重新加载
         tableIns.reload({
             where:{
                 status:status,
                 id:id,
-                productFormulaId:productFormulaId,
                 materialId:materialId,
+                productName:productName,
+                productType:productType,
+                productFormulaId:productFormulaId,
+                productId:productId,
+                type:type,
                 materialNumber:materialNumber
             }
         });

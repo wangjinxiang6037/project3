@@ -54,7 +54,6 @@ import java.util.List;
      */
     @RequestMapping("/list")
     @ResponseBody
-
    public IResult findAll(String page,String limit,String productId,String createUser){
         List<ProductFormula> list = productFormulaService.findAll(page, limit, productId, createUser);
        return new PageResultBean<Collection<ProductFormula>>(list,productFormulaService.countGetAll(productId,createUser));
@@ -100,7 +99,7 @@ import java.util.List;
       }
 
       /**
-       * 调用product表的id
+       * 获取所有信息
        */
       @RequestMapping(value = "/getProductById",method = RequestMethod.POST)
       @ResponseBody
@@ -108,5 +107,16 @@ import java.util.List;
 
           Product product = productService.getProduct(id);
           return new ResultBean(product);
+      }
+
+      /**
+       * 获取所有列表信息
+       */
+      @RequestMapping(value = "/selectAll",method = RequestMethod.POST)
+      @ResponseBody
+
+      public IResult selectAll(){
+          List<ProductFormula> list = productFormulaService.selectAll();
+          return new ResultBean<Collection<ProductFormula>>(list);
       }
   }

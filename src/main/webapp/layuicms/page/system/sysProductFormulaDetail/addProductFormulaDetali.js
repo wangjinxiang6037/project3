@@ -91,9 +91,12 @@ layui.config({
      * */
     form.on("submit(addFormulaDetail)", function (data) {
         var id = data.field.id;
-        var productFormulaId = data.field.productFormulaId;
         var materialId= data.field.materialId;
-
+        var productName= data.field.productName;
+        var productType= data.field.productType;
+        var productFormulaId = data.field.productFormulaId;
+        var productId= data.field.productId;
+        var type= data.field.type;
         var materialNumber = data.field.materialNumber
 
 
@@ -116,8 +119,13 @@ layui.config({
         //请求
         var req = {
             id: id,
-            productFormulaId: productFormulaId,
+
             materialId: materialId,
+            productName: productName,
+            productType: productType,
+            productFormulaId: productFormulaId,
+            productId: productId,
+            type: type,
             materialNumber: materialNumber
 
         };

@@ -21,16 +21,21 @@ public class ProductFormulaServiceImpl implements ProductFormulaService {
    @Autowired
     ProductMapper productMapper;
 
+    /**
+     * 分页模糊查询
+     * @param page
+     * @param limit
+     * @param productId
+     * @param createUser
+     * @return
+     */
     @Override
     public List<ProductFormula> findAll(String page, String limit, String productId, String createUser) {
-        /**
-         * 分页模糊查询
-         */
+
         PageRange pageRange = new PageRange(page,limit);
 
         return productFromulaMapper.findAll(pageRange.getStart(),pageRange.getEnd(),productId,createUser);
     }
-
     /**
      * 获取个数
      * @param productId
@@ -41,6 +46,8 @@ public class ProductFormulaServiceImpl implements ProductFormulaService {
     public int countGetAll(String productId, String createUser) {
         return productFromulaMapper.countGetAll(productId,createUser);
     }
+
+
 
     /**
      * 通过id删除生产配方信息
@@ -91,11 +98,14 @@ public class ProductFormulaServiceImpl implements ProductFormulaService {
     }
 
     /**
-     * 调用product表id
+     * 获取所有类表信息
+     * @return
      */
     @Override
-    public Product getProductById(String id) {
-        return productMapper.getProduct(id);
+    public List<ProductFormula> selectAll() {
+
+
+        return productFromulaMapper.selectAll();
     }
 
 

@@ -154,9 +154,9 @@ layui.define(['$tool','jquery'], function (exports) {
         GetProduct:function(req,successCallback,errorCallback){
              doPost($tool.getContext()+'product/get',req,successCallback,errorCallback);
         },
-       GetProductList:function(req,successCallback,errorCallback){
+       /*GetProductList:function(req,successCallback,errorCallback){
             doPost($tool.getContext() + 'product/list',req,successCallback,errorCallback);
-        },
+        },*/
         AddProduct:function(req,successCallback,errorCallback){
             doPost($tool.getContext() + 'product/add',req,successCallback,errorCallback);
         },//生产配方删除
@@ -219,7 +219,11 @@ layui.define(['$tool','jquery'], function (exports) {
     },//修改
         updateProductQuery:function(req,successCallback,errorCallback) {
         doPost($tool.getContext() + 'query/update', req, successCallback, errorCallback);
-    },
+    },//获取生产配方ID
+        GetFirstProductFormula:function(req,successCallback,errorCallback){
+        doPost($tool.getContext()+'productformula/selectAll',req,successCallback,errorCallback);
+        },
+
 
     };
 

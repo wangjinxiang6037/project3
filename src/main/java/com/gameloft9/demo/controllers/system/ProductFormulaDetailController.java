@@ -3,6 +3,7 @@ package com.gameloft9.demo.controllers.system;
 
 import com.gameloft9.demo.dataaccess.model.system.ProductFormula;
 import com.gameloft9.demo.dataaccess.model.system.ProductFormulaDetail;
+import com.gameloft9.demo.dataaccess.model.system.ProductproduceBean;
 import com.gameloft9.demo.mgrframework.beans.response.IResult;
 import com.gameloft9.demo.mgrframework.beans.response.PageResultBean;
 import com.gameloft9.demo.mgrframework.beans.response.ResultBean;
@@ -28,12 +29,12 @@ public class ProductFormulaDetailController {
     /**
      * 分页模糊查询
      */
-    @RequestMapping("list")
+    @RequestMapping(value = "list",method = RequestMethod.POST)
     @ResponseBody
     public IResult findAll(String page, String limit, String productFormulaId, String materialId){
-        List<ProductFormulaDetail> list = productFormulaDetailService.findAll(page, limit, productFormulaId, materialId);
+        List<ProductproduceBean> list = productFormulaDetailService.findAll(page, limit, productFormulaId, materialId);
 
-      return new PageResultBean<>(list,productFormulaDetailService.countGetAll(productFormulaId, materialId));
+      return new PageResultBean<List>(list,productFormulaDetailService.dataCount());
     }
     /**
      * 删除配方明细
@@ -52,7 +53,7 @@ public class ProductFormulaDetailController {
     @RequestMapping(value = "/get",method = RequestMethod.POST)
     @ResponseBody
     public IResult getById(String id){
-        ProductFormulaDetail byId = productFormulaDetailService.getById(id);
+        ProductproduceBean byId = productFormulaDetailService.getById(id);
         return new ResultBean(byId);
     }
 
@@ -75,4 +76,7 @@ public class ProductFormulaDetailController {
 
         return new ResultBean(productFormulaDetailService.add(productFormulaDetail));
     }
+
+
+
 }

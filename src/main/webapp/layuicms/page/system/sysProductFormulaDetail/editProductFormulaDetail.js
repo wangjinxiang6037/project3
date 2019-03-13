@@ -108,9 +108,13 @@ layui.config({
                     var data = res.data;
                     console.log(data)
                     $("[name='id']").val(data.id);
-                    $("[name='productFormulaId']").val(data.productFormulaId);
-                    $("[name='materialId']").val(data.materialId);
 
+                    $("[name='materialId']").val(data.materialId);
+                    $("[name='productName']").val(data.productName);
+                    $("[name='productType']").val(data.productType);
+                    $("[name='productFormulaId']").val(data.productFormulaId);
+                    $("[name='productId']").val(data.productId);
+                    $("[name='type']").val(data.type);
                     $("[name='materialNumber']").val(data.materialNumber)
                     /*orgId = data.orgId;
                     orgName = data.orgName;*/
@@ -129,9 +133,12 @@ layui.config({
                 var id = queryArgs['id'];
                 console.log(data)
                 var id = data.field.id;
-                var productFormulaId = data.field.productFormulaId;
                 var materialId = data.field.materialId;
-
+                var productName = data.field.productName;
+                var productType = data.field.productType;
+                var productFormulaId = data.field.productFormulaId;
+                var productId = data.field.productId;
+                var type = data.field.type;
                 var materialNumber = data.field.materialNumber
                 /*if ($tool.isBlank(orgId) || $tool.isBlank(orgName)) {
                     layer.msg("请选择所属组织机构");
@@ -148,9 +155,13 @@ layui.config({
                 //请求
                 var req = {
                     id: id,
-                    productFormulaId: productFormulaId,
-                    materialId: materialId,
 
+                    materialId: materialId,
+                    productName: productName,
+                    productFormulaId: productFormulaId,
+                    productType: productType,
+                    productId: productId,
+                    type: type,
                     materialNumber: materialNumber
                 };
 

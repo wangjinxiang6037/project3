@@ -1,19 +1,26 @@
 package com.gameloft9.demo.service.impl.system;
 
 import com.gameloft9.demo.dataaccess.dao.system.ProductFormulaDetailMapper;
+import com.gameloft9.demo.dataaccess.dao.system.ProductFromulaMapper;
+import com.gameloft9.demo.dataaccess.model.system.ProductFormula;
 import com.gameloft9.demo.dataaccess.model.system.ProductFormulaDetail;
+import com.gameloft9.demo.dataaccess.model.system.ProductproduceBean;
 import com.gameloft9.demo.service.api.system.ProductFormulaDetailService;
 import com.gameloft9.demo.service.beans.system.PageRange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 @Transactional
 @Service
 public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailService {
     @Autowired
     ProductFormulaDetailMapper productFormulaDetailMapper;
+    @Autowired
+    ProductFromulaMapper productFromulaMapper;
+
 
     /**
      * 分页模糊查询
@@ -24,7 +31,7 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
      * @return
      */
     @Override
-    public List<ProductFormulaDetail> findAll(String page, String limit, String productFormulaId, String materialId) {
+    public List<ProductproduceBean> findAll(String page, String limit, String productFormulaId, String materialId) {
         PageRange pageRange = new PageRange(page, limit);
 
         return productFormulaDetailMapper.findAll(pageRange.getStart(),pageRange.getEnd(),productFormulaId,materialId);
@@ -36,9 +43,14 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
      * @param materialId
      * @return
      */
-    @Override
+  /*@Override
     public int countGetAll(String productFormulaId, String materialId) {
         return productFormulaDetailMapper.countGetAll(productFormulaId,materialId);
+    }*/
+
+    @Override
+    public  int dataCount(){
+        return productFormulaDetailMapper.dataCount();
     }
 
     /**
@@ -57,7 +69,7 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
      * @return
      */
     @Override
-    public ProductFormulaDetail getById(String id) {
+    public ProductproduceBean getById(String id) {
         return productFormulaDetailMapper.getById(id);
     }
 
@@ -68,6 +80,7 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
      */
     @Override
     public int update(ProductFormulaDetail productFormulaDetail) {
+
         return productFormulaDetailMapper.update(productFormulaDetail);
     }
 
@@ -81,4 +94,7 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
 
         return productFormulaDetailMapper.add(productFormulaDetail);
     }
+
+
+
 }

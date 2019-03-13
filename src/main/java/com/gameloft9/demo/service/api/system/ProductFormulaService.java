@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductFormulaService {
     /**
-     * 获取所有产品表信息
+     * 分页获取所有产品表信息
      */
     List<ProductFormula> findAll(String page, String limit, String productId, String createUser);
 
@@ -38,7 +38,7 @@ public interface ProductFormulaService {
     String add(ProductFormula productFormula);
 
     /**
-     * 调用product表id
+     * 获取所有列表信息
      */
-    Product getProductById(String id);
+    List<ProductFormula> selectAll();
 }
