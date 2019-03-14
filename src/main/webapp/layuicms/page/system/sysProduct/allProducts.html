@@ -82,8 +82,20 @@
 <script type="text/html" id="barDemo">
     <!--通过lay-event定义事件-->
 
+    <!--{{#  if(d.productAddress < 1){ }}
+    <a href="/detail/{{d.productAddress}}" class="layui-table-link">{{d.title}}</a>
+    {{#  }
+    else { }}
+    {{d.title}}(普通用户)
+    {{#  } }}-->
+
+
+
+
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe642;</i>审核</a>
     <a class="layui-btn layui-btn-sm" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+
 
 </script>
 <!--用户状态模板-->

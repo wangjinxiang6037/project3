@@ -33,7 +33,7 @@ public interface ProductFormulaDetailService {
     /**
      * 修改生产配方明细
      */
-    int  update(ProductFormulaDetail productFormulaDetail);
+    int  update(ProductproduceBean productproduceBean);
 
     /**
      * 增加

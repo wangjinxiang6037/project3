@@ -48,4 +48,8 @@ public interface ProductMapper {
      */
     Product getProduct(String id);
 
+    /**
+     * 获取所有类表信息
+     */
+    List<Product> selectAll();
 }

@@ -62,9 +62,9 @@ public class ProductFormulaDetailController {
      */
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     @ResponseBody
-    public IResult update(ProductFormulaDetail productFormulaDetail){
+    public IResult update(ProductproduceBean productproduceBean){
 
-        return new ResultBean(productFormulaDetailService.update(productFormulaDetail));
+        return new ResultBean(productFormulaDetailService.update(productproduceBean));
     }
 
     /**

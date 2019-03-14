@@ -2,6 +2,7 @@ package com.gameloft9.demo.controllers.system;
 
 
 import com.gameloft9.demo.dataaccess.model.system.Product;
+import com.gameloft9.demo.dataaccess.model.system.ProductFormula;
 import com.gameloft9.demo.dataaccess.model.system.SysRoleTest;
 import com.gameloft9.demo.mgrframework.beans.response.IResult;
 import com.gameloft9.demo.mgrframework.beans.response.PageResultBean;
@@ -83,5 +84,13 @@ public class ProductController {
         Product product = productService.getProduct(id);
         return new ResultBean(product);
     }
-
+    /**
+     * 获取所有类表信息
+     */
+    @RequestMapping(value = "/selectAll",method = RequestMethod.POST)
+    @ResponseBody
+    public IResult selectAll(){
+        List<Product> list = productService.selectAll();
+         return new ResultBean<Collection<Product>>(list);
+    }
 }

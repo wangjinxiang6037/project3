@@ -137,10 +137,16 @@ layui.config({
                 //刷新父页面
                 parent.location.reload();
             });
+
+
         });
 
         return false;
+
+
+
     })
+
 
 });
 

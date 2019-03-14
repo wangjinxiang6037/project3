@@ -69,6 +69,8 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.getProduct(id);
     }
 
+
+
     /**
      * 修改
      * @param
@@ -92,5 +94,12 @@ public class ProductServiceImpl implements ProductService {
         return product.getId();
     }
 
-
+    /**
+     * 获取所有类表信息
+     * @return
+     */
+    @Override
+    public List<Product> selectAll() {
+        return productMapper.selectAll();
+    }
 }

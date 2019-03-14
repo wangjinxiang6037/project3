@@ -37,5 +37,9 @@ public interface ProductService {
      */
     Product getProduct(String id);
 
+    /**
+     * 获取所有列表信息
+     */
+    List<Product> selectAll();
 
 }

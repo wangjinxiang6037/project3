@@ -33,6 +33,19 @@ layui.config({
                 form.render();
             }
         });
+
+        //初始化下拉框
+       /* $api. GetFirstProduct(null,function (res) {
+            var data = res.data;
+            if(data.length > 0){
+                var html = '<option value="">--请选择--</option>';
+                for(var i=0;i<data.length;i++){
+                    html += '<option value="'+data[i].id+'">'+data[i].title+'</option>>';
+                }
+                $('#parentMenu').append($(html));
+                form.render();
+            }
+        });*/
     }
     init();
 
@@ -54,13 +67,11 @@ layui.config({
                 , {field: 'materialId', title: '原料ID' }
                 , {field: 'productName', title: '原料名字' }
                 , {field: 'productType', title: '原料类型' }
-
                 , {field: 'productFormulaId', title: '生产配方ID'}
                 , {field: 'productId', title: '配方ID' }
                 , {field: 'type', title: '配方类型' }
-
                 , {field: 'materialNumber', title: '原料数量'}
-                , {fixed: 'right', title: '操作',  align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                , {fixed: 'right', title: '操作',  width:300,align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             , done: function (res, curr) {//请求完毕后的回调
                 //如果是异步请求数据方式，res即为你接口返回的信息.curr：当前页码
@@ -77,11 +88,10 @@ layui.config({
             if (layEvent === 'del') { //删除
                 delFormulaDetail(row.id);
             } else if (layEvent === 'edit') { //编辑
-                //do something
                 editFormulaDetail(row.id);
-            }/*else if(layEvent === 'initPwd'){//密码初始化
-                initPwd(row.id);
-            }*/
+            }else{//审核
+                audi(row.id);
+            }
         });
     }
     defineTable();
@@ -116,6 +126,10 @@ layui.config({
 
         return false;
     });
+
+
+
+
 
     //添加用户
     $(".add_btn").click(function () {
@@ -177,12 +191,12 @@ layui.config({
         });
     }*/
 
-    //编辑
-    function editFormulaDetail(id){
+    //审核
+    function audi(id) {
         var index = layui.layer.open({
-            title: "编辑加工单",
+            title: "审核",
             type: 2,
-            content: "editProductFormulaDetail.html?id="+id,
+            content: "aduiProductFormulaDetail.html?id=" + id,
             success: function (layero, index) {
                 setTimeout(function () {
                     layui.layer.tips('点击此处返回用户列表', '.layui-layer-setwin .layui-layer-close', {
@@ -191,11 +205,33 @@ layui.config({
                 }, 500)
             }
         });
-
         //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
         $(window).resize(function () {
             layui.layer.full(index);
         });
         layui.layer.full(index);
     }
+
+        //编辑
+        function editFormulaDetail(id) {
+            var index = layui.layer.open({
+                title: "编辑加工单",
+                type: 2,
+                content: "editProductFormulaDetail.html?id=" + id,
+                success: function (layero, index) {
+                    setTimeout(function () {
+                        layui.layer.tips('点击此处返回用户列表', '.layui-layer-setwin .layui-layer-close', {
+                            tips: 3
+                        });
+                    }, 500)
+                }
+            });
+
+            //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+            $(window).resize(function () {
+                layui.layer.full(index);
+            });
+            layui.layer.full(index);
+        }
+
 });

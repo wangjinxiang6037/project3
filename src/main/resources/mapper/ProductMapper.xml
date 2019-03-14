@@ -23,6 +23,15 @@
         ID, PRODUCT_NAME, PRODUCT_TYPE, PRODUCT_DESCRIBE, PRODUCT_PRICE, PRODUCT_ADDRESS
     </sql>
 
+    <!--获取所有类表角色-->
+    <select id="selectAll" resultMap="ProductResultMap" >
+
+        select
+           ID, PRODUCT_NAME, PRODUCT_TYPE, PRODUCT_DESCRIBE, PRODUCT_PRICE, PRODUCT_ADDRESS
+        from product
+
+
+    </select>
     <!--获取角色ID-->
 
     <select id="getProduct" resultMap="ProductResultMap" parameterType="java.lang.String">

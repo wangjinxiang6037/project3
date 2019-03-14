@@ -40,7 +40,7 @@ public interface ProductFormulaDetailMapper {
     /**
      * 修改
      */
-    int update(ProductFormulaDetail productFormulaDetail);
+    int update(ProductproduceBean productproduceBean);
 
     /**
      * 增加

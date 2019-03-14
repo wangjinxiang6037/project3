@@ -222,7 +222,10 @@ layui.define(['$tool','jquery'], function (exports) {
     },//获取生产配方ID
         GetFirstProductFormula:function(req,successCallback,errorCallback){
         doPost($tool.getContext()+'productformula/selectAll',req,successCallback,errorCallback);
-        },
+        },//获取生产ID
+        GetFirstProduct:function(req,successCallback,errorCallback){
+        doPost($tool.getContext()+'product/selectAll',req,successCallback,errorCallback);
+    },
 
 
     };

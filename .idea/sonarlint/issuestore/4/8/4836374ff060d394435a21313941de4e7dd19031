@@ -1,12 +1,12 @@
 
+gsquid:S4488:"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8µ…ë”-
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8˜Øÿê”-
 hsquid:S4488C"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8¼÷‹…•-
-gsquid:S4488/"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹68şŠé”-
-hsquid:S4488$"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ø›ˆˆ8şŠé”-
 squid:UselessImportCheck"cRemove this unused import 'org.springframework.web.servlet.mvc.condition.ProducesRequestCondition'.(Š¾ûì8şŠé”-
 ƒsquid:UselessImportCheck"SRemove this unused import 'com.gameloft9.demo.dataaccess.model.system.SysRoleTest'.(Ûåé ıÿÿÿÿ8ÉÅ¶‡•-
 squid:UselessImportCheck
 "TRemove this unused import 'com.gameloft9.demo.service.beans.system.OrgNodeResponse'.(´ŞÑí8şŠé”-
-squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8˜Øÿê”-
 †squid:UselessImportCheck"VRemove this unused import 'com.gameloft9.demo.service.impl.system.ProductServiceImpl'.(œÂü÷şÿÿÿÿ8Ô·‘–•-
-gsquid:S4488:"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8µ…ë”-
+gsquid:S4488/"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹68şŠé”-
+hsquid:S4488$"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ø›ˆˆ8şŠé”-
 usquid:S001171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Ü¼½ùÿÿÿÿ8Á°ıé”-

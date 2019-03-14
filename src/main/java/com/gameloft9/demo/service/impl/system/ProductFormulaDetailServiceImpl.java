@@ -79,9 +79,9 @@ public class ProductFormulaDetailServiceImpl implements ProductFormulaDetailServ
      * @return
      */
     @Override
-    public int update(ProductFormulaDetail productFormulaDetail) {
+    public int update(ProductproduceBean productproduceBean) {
 
-        return productFormulaDetailMapper.update(productFormulaDetail);
+        return productFormulaDetailMapper.update(productproduceBean);
     }
 
     /**

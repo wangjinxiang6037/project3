@@ -41,7 +41,7 @@ layui.config({
                 , {field: 'productType', title: '原料类型' }
                 , {field: 'productDescribe', title: '原料描述'}
                 , {field: 'productPrice', title: '原料价格' }
-                , {field: 'productAddress', title: '原料地址'}
+                , {field: 'productAddress', title: '审核状态'}
 
                 , {fixed: 'right', title: '操作',  align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
@@ -62,9 +62,9 @@ layui.config({
             } else if (layEvent === 'edit') { //编辑
                 //do something
                 editUser(row.id);
-            }/*else if(layEvent === 'initPwd'){//密码初始化
-                initPwd(row.id);
-            }*/
+            }else{//审核
+                audi(row.id);
+            }
         });
     }
     defineTable();
@@ -154,6 +154,27 @@ layui.config({
             });
         });
     }*/
+
+    //审核
+    function audi(id) {
+        var index = layui.layer.open({
+            title: "审核",
+            type: 2,
+            content: "aduiProduct.html?id=" + id,
+            success: function (layero, index) {
+                setTimeout(function () {
+                    layui.layer.tips('点击此处返回用户列表', '.layui-layer-setwin .layui-layer-close', {
+                        tips: 3
+                    });
+                }, 500)
+            }
+        });
+        //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+        $(window).resize(function () {
+            layui.layer.full(index);
+        });
+        layui.layer.full(index);
+    }
 
     //编辑
     function editUser(id){

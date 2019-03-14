@@ -99,23 +99,20 @@ layui.config({
                 var queryArgs = $tool.getQueryParam();//获取查询参数
                 var id = queryArgs['id'];
 
-                var url = $tool.getContext()+'product/get';
+                var url = $tool.getContext()+'productformula/get';
                 var req = {
                     id: id
                 };
 
-                $api.GetFormulaDetail(req, function (res) {
+                $api.GetProductFormula(req, function (res) {
                     var data = res.data;
                     console.log(data)
-                    $("[name='id']").val(data.id);
 
-                    $("[name='materialId']").val(data.materialId);
-                    $("[name='productName']").val(data.productName);
-                    $("[name='productType']").val(data.productType);
-                    $("[name='productFormulaId']").val(data.productFormulaId);
                     $("[name='productId']").val(data.productId);
                     $("[name='type']").val(data.type);
-                    $("[name='materialNumber']").val(data.materialNumber)
+                    $("[name='createUser']").val(data.createUser);
+
+                    $("[name='createTime']").val(data.createTime)
                     /*orgId = data.orgId;
                     orgName = data.orgName;*/
                    // user_roleIds = data.roleIdList;//保存用户所属角色id列表，初始化选中时用
@@ -128,18 +125,15 @@ layui.config({
             /**
              * 表单提交
              * */
-            form.on("submit(editFormulaDetail)", function (data) {
+            form.on("submit(editProductFormula)", function (data) {
                 var queryArgs = $tool.getQueryParam();//获取查询参数
                 var id = queryArgs['id'];
                 console.log(data)
-                var id = data.field.id;
-                var materialId = data.field.materialId;
-                var productName = data.field.productName;
-                var productType = data.field.productType;
-                var productFormulaId = data.field.productFormulaId;
+
                 var productId = data.field.productId;
                 var type = data.field.type;
-                var materialNumber = data.field.materialNumber
+                var createUser = data.field.createUser;
+                var createTime = data.field.createTime
                 /*if ($tool.isBlank(orgId) || $tool.isBlank(orgName)) {
                     layer.msg("请选择所属组织机构");
                     return false;
@@ -154,20 +148,16 @@ layui.config({
 
                 //请求
                 var req = {
-                    id: id,
-
-                    materialId: materialId,
-                    productName: productName,
-                    productFormulaId: productFormulaId,
-                    productType: productType,
+                    id:id,
                     productId: productId,
                     type: type,
-                    materialNumber: materialNumber
+                    createUser: createUser,
+                    createTime: createTime
                 };
 
-                $api.updateFormulaDetail(req, function (data) {
+                $api.updateProductFormula(req, function (data) {
                     //top.layer.close(index);(关闭遮罩已经放在了ajaxExtention里面了)
-                    layer.msg("用户更新成功！", {time: 1000}, function () {
+                    layer.msg("提交成功！", {time: 1000}, function () {
                         layer.closeAll("iframe");
                         //刷新父页面
                         parent.location.reload();
@@ -175,11 +165,7 @@ layui.config({
                 });
 
                 return false;
-
-
-
             })
-
 
         });
 
